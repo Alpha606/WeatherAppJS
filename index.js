@@ -3,6 +3,7 @@ const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".searchButton");
 const weatherIcon = document.querySelector(".weather-icon");
+const unitSwitchButton=document.getElementById('unitswitchbtn');
 
 // Function to fetch and display weather information
 // Function to fetch and display weather information
@@ -85,10 +86,38 @@ function setWeatherIcon(weatherCondition) {
     }
 }
 
+
 // Display Mumbai weather by default
 checkweather("Mumbai");
 
 // Event listener to allow the user to search for other cities
 searchBtn.addEventListener("click", () => {
     checkweather(searchBox.value);
+});
+unitSwitchButton.addEventListener("click", () => {
+    // Select the temperature element
+    const tempElement = document.querySelector(".temp");
+    
+    // Log the temperature element and its innerHTML
+    console.log(tempElement);
+    console.log(tempElement.innerHTML);
+
+    // Explicitly use the degree symbol (°) for splitting
+    const [tempValue, tempUnit] = tempElement.innerHTML.split("°");
+
+    // Log the parsed values
+    console.log(tempValue, tempUnit);
+
+    // Check the current unit and convert to the other unit
+    if (tempUnit === "C") {
+        // Convert to Fahrenheit and update the displayed temperature
+        const tempInFahrenheit = (tempValue * 9/5) + 32;
+        tempElement.innerHTML = Math.round(tempInFahrenheit) + "°F";
+        console.log("Switched to °F:", tempInFahrenheit);
+    } else if (tempUnit === "F") {
+        // Convert to Celsius and update the displayed temperature
+        const tempInCelsius = (tempValue - 32) * 5/9;
+        tempElement.innerHTML = Math.round(tempInCelsius) + "°C";
+        console.log("Switched to °C:", tempInCelsius);
+    }
 });

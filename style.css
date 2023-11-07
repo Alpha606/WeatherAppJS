@@ -45,9 +45,16 @@ body{
     width: 60px;
     height: 60px;
     cursor: pointer;
+    margin-right: 20px; /* More margin for separation */
+    transition: background-color 0.3s ease; /* Smooth transition */
 }
+
 .searchButton img{
-    width: 16px;
+    width: 15px;
+}
+/* Change button color on hover */
+.searchButton:hover {
+    background-color: #a3d2ca; /* A different color on hover */
 }
 
 .weather-icon{
@@ -85,3 +92,19 @@ body{
     font-size: 28px;
     margin-top: -6px;
 }
+#unitswitchbtn {
+    background-color: #ebfffc;
+    color: #555;
+    border: 0;
+    border-radius: 100px;
+    padding: 10px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0px 0px; /* Adjust the margin to your design */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+/* Add a hover effect to the unit switch button */
+#unitswitchbtn:hover {
+    background-color: #a3d2ca; /* A different color on hover */
+}
+
